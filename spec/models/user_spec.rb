@@ -10,9 +10,7 @@ RSpec.describe User, type: :model do
                      "credentials"=>{"token"=>"b6ccdc2e4d491f97468e1724a5e3037bd285f254", "expires"=>false}}
            }
 
-    user = User.create!(github_id: hash["uid"])
-    user.update_from_auth(hash)
-    user.save!
+    user = User.from_omniauth(hash)
 
     expect(user.reload.name).to eq("Somebody Else")
   end
