@@ -9,7 +9,7 @@ def mock_auth_hash
     {"email"=>"",
      "name"=>"Somebody Else",
      "image"=>"https://avatars.githubusercontent.com/u/123456",
-     "credentials"=>{"token"=>"b6ccdc2e4d491f97468e1724a5e3037bd285f254", "expires"=>false}}
+     "credentials"=>{"token"=>"jv93u4tighv87aueib4utg9u2i4r78fgubi827", "expires"=>false}}
     }
   })
 end
