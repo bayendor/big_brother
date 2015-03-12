@@ -12,3 +12,7 @@
 !/log/.keep
 /tmp
 .env
+
+# SimpleCov
+coverage/*
+.simplecov

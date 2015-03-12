@@ -13,6 +13,8 @@ gem "jbuilder", "~> 2.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 gem "bootstrap-sass", "~> 3.3.3"
 gem "unicorn"
+gem "omniauth"
+gem "omniauth-github"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -28,6 +30,8 @@ group :development, :test do
   gem "spring"
   gem "rspec-rails", "~> 3.0"
   gem "simplecov", require: false, group: :test
+  gem "pry-rails"
+  gem "capybara", require: false, group: :test
 end
 
 group :production, :staging do
