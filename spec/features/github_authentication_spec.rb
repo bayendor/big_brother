@@ -24,4 +24,15 @@ describe "github login", type: :feature do
     expect(page).not_to have_link("Login")
     expect(page).to have_link("Logout")
   end
+
+  it "can log out" do
+    mock_auth_hash
+    visit root_path
+    find_link("Login").click
+
+    find_link("Logout").click
+
+    expect(page).not_to have_link("Logout")
+    expect(page).to have_link("Login")
+  end
 end
