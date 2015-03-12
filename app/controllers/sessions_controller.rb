@@ -1,9 +1,7 @@
 class SessionsController < ApplicationController
   def create
     if login_successful?
-      @user = User.find_or_create_by(github_id: request.env["omniauth.auth"]["uid"])
-      @user.update_from_auth(request.env["omniauth.auth"])
-      @user.save!
+      @user = User.from_omniauth(request.env["omniauth.auth"])
       session[:user_id] = @user.id
       redirect_to root_path
     end
