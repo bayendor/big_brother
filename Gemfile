@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby ENV['CUSTOM_RUBY_VERSION'] || '2.2.0'
+
 gem "rails", "4.2.0"
 
 gem "dotenv-rails", groups: [:development, :test]
