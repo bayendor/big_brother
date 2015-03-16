@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  serialize :commands, ActiveRecord::Coders::NestedHstore
+
   def self.from_omniauth(hash)
     user         = first_or_create(github_id: hash["uid"])
     user.update_from_auth(hash)
