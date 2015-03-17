@@ -23,7 +23,7 @@ class Api::UsersController < ApplicationController
   end
 
   def check_api_key
-    api_key = ApiKey.where(access_token: params[:access_token])
+    api_key = ApiKey.find_by(access_token: params[:access_token])
     head :unauthorized unless api_key
   end
 end
