@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   get "/login" => redirect("/auth/github"), as: :login
 
   get "/logout" => "sessions#destroy", as: :logout
+
+  namespace "api" do
+    resource :users, only: [:update]
+  end
 end
