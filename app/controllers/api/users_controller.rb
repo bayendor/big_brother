@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
   def merge_in_new_commands(user)
     current_commands = user.commands
     new_commands     = big_bro_params["commands"]
-    current_commands.deep_merge(new_commands) {|key, old, new| old + new}
+    current_commands.deep_merge(new_commands) { |_key, old, new| old + new }
   end
 
   def big_bro_params
