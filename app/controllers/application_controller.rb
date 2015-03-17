@@ -22,13 +22,13 @@ class ApplicationController < ActionController::Base
   def correct_user?
     @user = User.find(params[:id])
     unless current_user == @user
-      redirect_to root_url, alert: 'Access denied.'
+      redirect_to root_url, alert: "Access denied."
     end
   end
 
   def authenticate_user!
     unless current_user
-      redirect_to root_url, alert: 'You need to sign in to access this page.'
+      redirect_to root_url, alert: "You need to sign in to access this page."
     end
   end
 end

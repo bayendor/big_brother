@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
+  has_one :api_key
   serialize :commands, ActiveRecord::Coders::NestedHstore
+  after_create :generate_apikey
 
   def self.from_omniauth(hash)
     user         = first_or_create(github_id: hash["uid"])
@@ -11,5 +13,11 @@ class User < ActiveRecord::Base
     self.name    = hash["info"]["name"]
     self.picture = hash["info"]["image"]
     save!
+  end
+
+  private
+
+  def generate_apikey
+    ApiKey.create(user: self)
   end
 end

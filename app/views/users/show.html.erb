@@ -2,15 +2,15 @@
 
 <div class="col-sm-6">
 <div class="well well-lg">
-  <h2>Example Text Here</h2>
-  <p>more text here</p>
+  <h2><%= @user.name %></h2>
+  <h5>API Key: <%= @user.api_key.access_token %></h5>
 </div>
 </div>
 
 <div class="col-sm-6">
   <div class="well well-lg">
 
-    <p><%= truncate(@user.commands.to_s, length: 350) %></p>
+    <p><%= truncate(@user.commands.to_s, length: 500) %></p>
 
   </div>
 <div style="clear:both;"></div>
