@@ -1,0 +1,17 @@
+<% page_header "Users" %>
+
+<div class="col-sm-6">
+<div class="well well-lg">
+  <h2>Example Text Here</h2>
+  <p>more text here</p>
+</div>
+</div>
+
+<div class="col-sm-6">
+<% @users.each do |user| %>
+  <div class="well well-lg">
+    <h2><%= user.name %></h2>
+    <h3><%= user.github_id %></h3>
+  </div>
+<% end %>
+<div style="clear:both;"></div>

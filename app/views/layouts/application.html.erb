@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>BigBrother</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -11,6 +12,19 @@
   <div class="container">
     <%= yield %>
   </div>
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+</div>
+
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">Created by <a href="#" target="_blank">Turing Cohort 1409</a></p>
+  </div>
+</div>
 
 </body>
 </html>

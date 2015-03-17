@@ -1,0 +1,16 @@
+<% page_header "Commands" %>
+
+<div class="col-sm-6">
+<div class="well well-lg">
+  <h2>Example Text Here</h2>
+  <p>more text here</p>
+</div>
+</div>
+
+<div class="col-sm-6">
+  <div class="well well-lg">
+
+    <p><%= truncate(@user.commands.to_s, length: 350) %></p>
+
+  </div>
+<div style="clear:both;"></div>
