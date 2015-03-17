@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_one :api_key
   serialize :commands, ActiveRecord::Coders::NestedHstore
 
   def self.from_omniauth(hash)
