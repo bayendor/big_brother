@@ -1,0 +1,12 @@
+<div class="col-sm-6">
+<% @users.each do |user| %>
+  <div class="well well-lg">
+    <h2><%= user.name %></h2>
+
+    <p><%= truncate(user.commands.to_s, length: 350) %></p>
+
+    <div class="btn-group">
+
+    </div>
+  </div>
+<% end %>
