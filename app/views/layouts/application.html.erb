@@ -13,20 +13,11 @@
     <%= yield %>
   </div>
 <div class="container">
-  <div class="page-header">
-    <h1><%= yield :page_header %></h1>
-  </div>
-
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>">
       <%= value %>
     </div>
   <% end %>
-
-  <div class="col-sm-6">
-    <%= yield %>
-  </div>
-
 </div>
 
 <div id="footer">
