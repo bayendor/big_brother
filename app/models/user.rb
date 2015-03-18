@@ -4,8 +4,7 @@ class User < ActiveRecord::Base
   after_create :generate_apikey
 
   def self.from_api_key(key)
-    user = ApiKey.find_by(access_token: key).try(:user)
-    user
+    ApiKey.find_by(access_token: key).try(:user)
   end
 
   def self.from_omniauth(hash)
