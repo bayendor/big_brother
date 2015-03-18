@@ -1,24 +1,33 @@
 <% page_header "Commands" %>
 
 <div class="col-sm-6">
-<div class="well well-lg">
-  <h2><%= @user.name %></h2>
-  <h5>API Key: <%= @user.api_key.access_token %></h5>
-</div>
+  <div class="well well-lg">
+    <h2><%= @user.name %></h2>
+    <h5>API Key: <%= @user.api_key.access_token %></h5>
+  </div>
 </div>
 
 <div class="col-sm-6">
   <div class="well well-lg command-container">
     <h2>My Commands</h2>
-    <ul>
-      <% @user.sorted_commands.each do |command| %>
-        <li>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Command</th>
+          <th>Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.sorted_commands.each do |command| %>
           <% command.each_pair do |command, count| %>
-            <%= command %><span class="command-count"><%= count %></span>
+            <tr>
+              <td><%= command %></td>
+              <td><%= count %></td>
+            </tr>
           <% end %>
-        </li>
-      <% end %>
-    </ul>
+        <% end %>
+      </tbody>
+    </table>
 
   </div>
-<div style="clear:both;"></div>
+  <div style="clear:both;"></div>
