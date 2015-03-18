@@ -2,31 +2,14 @@
 [![Code Climate](https://codeclimate.com/github/bayendor/big_brother/badges/gpa.svg)](https://codeclimate.com/github/bayendor/big_brother)
 [ ![Codeship Status for bayendor/big_brother](https://codeship.com/projects/6753f780-ab00-0132-b9f4-42ab820675c2/status?branch=master)](https://codeship.com/projects/68179)
 
-== README
+README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Big Brother is a two part application designed to analyze the your command line activity.
 
-Things you may want to cover:
+A user registers with the Big Brother Ruby on Rails application via OAuth authentication with their GitHub account and is assigned an api_key that configures the `big_bro` command line tool.
 
-* Ruby version
+A `big_bro` tool is installed on the users machine and parses the `.bash_history` file and uploads that history to the Big Brother site.
 
-* System dependencies
+The tool explicilty ignores any use of the `export` command to avoid capturing any sensitive environment variables.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+A user is then able to view the commands most commonly used along with relavent information that, it is hoped, will allow for insight into patterns of usage that can be adapted to make a developer more efficient.

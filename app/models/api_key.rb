@@ -9,7 +9,7 @@ class ApiKey < ActiveRecord::Base
   def generate_access_token
     self.access_token = nil
     until access_token && !self.class.exists?(access_token: access_token)
-      self.access_token = SecureRandom.base64(12)
+      self.access_token = SecureRandom.hex(13)
     end
   end
 end
