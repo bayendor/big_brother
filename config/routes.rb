@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "pages#index"
+  root "users#index"
 
   get "/getting_started", to: "pages#getting_started"
 
