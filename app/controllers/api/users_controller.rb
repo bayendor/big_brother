@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
   before_filter :check_api_key
 
   def update
-    @user = User.from_api_key(@api_key.access_token)
+    @user = @api_key.user
     if @user
       @user.update(commands: merge_in_new_commands(@user))
       render json: @user

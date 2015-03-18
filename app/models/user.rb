@@ -3,10 +3,6 @@ class User < ActiveRecord::Base
   serialize :commands, ActiveRecord::Coders::NestedHstore
   after_create :generate_apikey
 
-  def self.from_api_key(token)
-    ApiKey.find_by(access_token: token).try(:user)
-  end
-
   def self.from_omniauth(hash)
     user         = first_or_create(github_id: hash["uid"])
     user.update_from_auth(hash)
