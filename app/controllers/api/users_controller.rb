@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
   end
 
   def big_bro_params
-    JSON.parse(params["big_bro"])
+    JSON.parse(File.read(params[:file].path))
   end
 
   def check_api_key
