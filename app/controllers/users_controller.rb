@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_filter :correct_user?, except: [:index]
 
   def index
+    @top_commands = User.top_commands(10)
     @users = User.all
   end
 

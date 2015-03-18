@@ -1,14 +1,16 @@
 <% page_header "Users" %>
 
 <div class="col-sm-6">
-<div class="well well-lg">
-  <h2>Top Trending Commands</h2>
-  <ul>
-    <li>a command</li>
-    <li>another command</li>
-    <li>one more</li>
-  </ul>
-</div>
+  <div class="well well-lg">
+    <h2>Top Trending Commands</h2>
+    <ul>
+      <% @top_commands.each do |command| %>
+        <% command.each_pair do |command, count| %>
+          <li><%= command %><span class="command-count"><%= count %></span></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <div class="col-sm-6">
