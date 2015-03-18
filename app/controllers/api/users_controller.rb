@@ -3,10 +3,12 @@ class Api::UsersController < ApplicationController
   before_filter :check_api_key
 
   def update
-    @user = User.find_by(github_id: big_bro_params["api_key"])
-    @user.update(commands: merge_in_new_commands(@user))
-    if @user.save
+    @user = @api_key.user
+    if @user
+      @user.update(commands: merge_in_new_commands(@user))
       render json: @user
+    else
+      render json: {"message" => "Sorry, that isn't a valid api key"}
     end
   end
 
@@ -23,7 +25,7 @@ class Api::UsersController < ApplicationController
   end
 
   def check_api_key
-    api_key = ApiKey.find_by(access_token: params[:access_token])
-    head :unauthorized unless api_key
+    @api_key = ApiKey.find_by(access_token: big_bro_params["api_key"])
+    head :unauthorized unless @api_key
   end
 end
