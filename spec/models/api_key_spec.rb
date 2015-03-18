@@ -13,4 +13,11 @@ RSpec.describe ApiKey, type: :model do
 
     expect(invalid_apikey.save).to be false
   end
+
+  it 'contains only hex values' do
+    10.times do
+      apikey = ApiKey.create!
+      expect(apikey.access_token).to match(/[a-fA-Z0-9]/)
+    end
+  end
 end
