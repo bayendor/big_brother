@@ -15,19 +15,28 @@ class User < ActiveRecord::Base
     save!
   end
 
-  def top_commands
-    commands.map do |key, value|
-      if commands[key].is_a?(Hash)
-        commands[key].map { |k,v| "#{key} #{k}: #{v}" }
-      else
-        "#{key}: #{value}"
-      end
-    end.flatten
+  def sorted_commands
+    commands_array.sort_by { |pair| -pair.values.first }
   end
 
   private
 
   def generate_apikey
     ApiKey.create(user: self)
+  end
+
+  def commands_hash
+    commands.each_with_object({}) do |(first_cmd, sub_commands), total|
+      sub_commands.each do |second_cmd, amt|
+        command = [first_cmd, second_cmd].join(" ").strip
+        total[command] = amt
+      end
+    end
+  end
+
+  def commands_array
+    commands_hash.inject([]) do |memo, (k,v)|
+      memo << {k => v}
+    end
   end
 end

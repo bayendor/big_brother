@@ -8,9 +8,17 @@
 </div>
 
 <div class="col-sm-6">
-  <div class="well well-lg">
+  <div class="well well-lg command-container">
     <h2>My Commands</h2>
-    <p><%= truncate(@user.commands.to_s, length: 500) %></p>
+    <ul>
+      <% @user.sorted_commands.each do |command| %>
+        <li>
+          <% command.each_pair do |command, count| %>
+            <%= command %><span class="command-count"><%= count %></span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
 
   </div>
 <div style="clear:both;"></div>

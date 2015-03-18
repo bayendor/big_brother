@@ -15,11 +15,11 @@ RSpec.describe User, type: :model do
     expect(user.reload.name).to eq("Somebody Else")
   end
 
-  it "can find its top commands" do
+  it "can find its sorted commands" do
     user = User.create(name: "test user")
     user.commands = {"git" => {"status" => 5, "hist" => 1, "commit" => 3}}
     user.save!
 
-    expect(user.top_commands).to eq(["git status: 5", "git commit: 3", "git hist: 1"])
+    expect(user.sorted_commands).to eq([{"git status"=>5}, {"git commit"=>3}, {"git hist"=>1}])
   end
 end
