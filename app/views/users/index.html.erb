@@ -2,16 +2,24 @@
 
 <div class="col-sm-6">
 <div class="well well-lg">
-  <h2>Example Text Here</h2>
-  <p>more text here</p>
+  <h2>Top Trending Commands</h2>
+  <ul>
+    <li>a command</li>
+    <li>another command</li>
+    <li>one more</li>
+  </ul>
 </div>
 </div>
 
 <div class="col-sm-6">
 <% @users.each do |user| %>
   <div class="well well-lg">
-    <h2><%= user.name %></h2>
-    <h3><%= user.github_id %></h3>
+    <% if user == current_user %>
+      <h2><%= link_to user.name, user_path(user) %></h2>
+    <% else %>
+      <h2><%= user.name %></h2>
+    <% end %>
+    <h4><%= user.name %>'s favorite command: </h4>
   </div>
 <% end %>
 <div style="clear:both;"></div>
