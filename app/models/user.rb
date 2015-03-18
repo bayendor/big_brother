@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     save!
   end
 
+  def most_used_command
+    sorted_commands.first.keys.first
+  end
+
   def sorted_commands
     commands_array.sort_by { |pair| -pair.values.first }
   end

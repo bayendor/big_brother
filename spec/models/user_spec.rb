@@ -22,4 +22,12 @@ RSpec.describe User, type: :model do
 
     expect(user.sorted_commands).to eq([{"git status"=>5}, {"git commit"=>3}, {"git hist"=>1}])
   end
+
+  it "can find its most used command" do
+    user = User.create(name: "test user")
+    user.commands = {"git" => {"status" => 5, "hist" => 1, "commit" => 3}}
+    user.save!
+
+    expect(user.most_used_command).to eq("git status")
+  end
 end
