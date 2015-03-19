@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_one :api_key
   serialize :commands, ActiveRecord::Coders::NestedHstore
   after_create :generate_apikey
+  default_scope { order("name ASC") }
 
   def self.top_commands(num)
     TopCommands.top(num)
