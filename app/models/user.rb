@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(hash)
-    user = first_or_create(github_id: hash["uid"])
+    user = find_or_create_by(github_id: hash["uid"])
     user.update_from_auth(hash)
     user
   end
