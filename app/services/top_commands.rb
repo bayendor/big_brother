@@ -7,6 +7,16 @@ class TopCommands
     new.top(num - 1)
   end
 
+  def self.sorted_editors
+    new.sorted_editors
+  end
+
+  def sorted_editors
+    sorted_commands.select do |command|
+      text_editors.include? command.keys.first
+    end
+  end
+
   private
 
   def commands
@@ -33,5 +43,9 @@ class TopCommands
     commands_hash.inject([]) do |memo, (k,v)|
       memo << {k => v}
     end
+  end
+
+  def text_editors
+    %w[atom vim mate subl mine emacs]
   end
 end
