@@ -33,4 +33,17 @@ describe "github login", type: :feature do
     expect(page).not_to have_link("Logout")
     expect(page).to have_link("Login")
   end
+
+  it "redirects correctly on login" do
+    mock_auth_hash
+    visit root_path
+    find_link("Login").click
+
+    expect(current_path).to eq(getting_started_path)
+    find_link("Logout").click
+    user = User.find_by(github_id: "123456")
+
+    find_link("Login").click
+    expect(current_path).to eq(user_path(user))
+  end
 end

@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   def update_from_auth(hash)
     self.name    = hash["info"]["name"]
     self.picture = hash["info"]["image"]
+    self.login_count += 1
     save!
   end
 
