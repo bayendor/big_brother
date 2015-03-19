@@ -12,7 +12,11 @@
     <%= link_to "your profile", login_path %>
   <% end %>
   and give it to your machine with
-  <pre>big_bro config set api_key YOUR_API_KEY</pre>
+  <% if current_user %>
+    <pre>big_bro config set api_key <%= current_user.api_key.access_token %></pre>
+  <% else %>
+    <pre>big_bro config set api_key YOUR_API_KEY</pre>
+  <% end %>
 
   Now you can push up your bash_history with
 
