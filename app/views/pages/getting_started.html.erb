@@ -1,5 +1,5 @@
-<div class="col-md-2">&nbsp;</div>
-<div class="col-md-8">
+
+<div class="col-md-8 col-md-offset-2">
   <h1>Getting Started</h1>
   First, you'll need the gem, which can be downloaded with
 
@@ -12,7 +12,7 @@
     <%= link_to "your profile", login_path %>
   <% end %>
   and give it to your machine with
-  <pre>big_bro api_key set YOUR_API_KEY</pre>
+  <pre>big_bro config set api_key YOUR_API_KEY</pre>
 
   Now you can push up your bash_history with
 
@@ -22,7 +22,7 @@
   If you use a different shell, it may save your history elsewhere.
   You can tell Big Brother to use that location with
 
-  <pre>big_bro history_location set /path/to/history</pre>
+  <pre>big_bro config set history_file /full/path/to/history</pre>
 
   We recommend pushing up your bash_history at least once a week.
 </div>
