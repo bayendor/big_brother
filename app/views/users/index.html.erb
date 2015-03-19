@@ -33,7 +33,7 @@
       </thead>
       <tbody>
         <% @top_editors.each do |editor| %>
-          <% editor.each_pair do |editor, count| %>
+          <% editor.each do |editor, count| %>
             <tr>
               <td><%=editor %></td>
               <td><%= count %></td>
