@@ -5,16 +5,12 @@
 
   <pre>gem install big_bro</pre>
 
-  Then get your api key from
+  Then
   <% if current_user %>
-    <%= link_to "your profile", user_path(current_user) %>
-  <% else %>
-    <%= link_to "your profile", login_path %>
-  <% end %>
-  and give it to your machine with
-  <% if current_user %>
+    get your api key and give it to your machine with
     <pre>big_bro config set api_key <%= current_user.api_key.access_token %></pre>
   <% else %>
+    <%= link_to "login", login_path %> to get your api key and give it to your machine with
     <pre>big_bro config set api_key YOUR_API_KEY</pre>
   <% end %>
 

@@ -1,14 +1,16 @@
 <% page_header "Commands" %>
 
 <div class="col-sm-6">
-  <div class="well well-lg">
-    <h2><%= @user.name %></h2>
-    <h5>API Key: <%= @user.api_key.access_token %></h5>
+  <div class="well well-sm">
+    <ul class="list-inline">
+      <li><%= image_tag @user.picture, size: '75' %></li>
+      <li><h2><%= @user.name %></h2></li>
+    </ul>
   </div>
 </div>
 
 <div class="col-sm-6">
-  <div class="well well-lg command-container">
+  <div class="well well-sm command-container">
     <h2>My Commands</h2>
     <table class="table">
       <thead>
