@@ -12,7 +12,9 @@ class TopCommands
   end
 
   def sorted_editors
-    sorted_commands.select do |command|
+    commands.each_with_object({}) do |(first_cmd, sub_commands), total|
+      total[first_cmd] = second_cmd.values.reduce(:+)
+    end.select do |command|
       text_editors.include? command.keys.first
     end
   end
