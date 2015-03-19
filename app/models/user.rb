@@ -44,8 +44,8 @@ class User < ActiveRecord::Base
   end
 
   def commands_array
-    commands_hash.inject([]) do |memo, (k,v)|
-      memo << {k => v}
+    commands_hash.inject([]) do |memo, (k, v)|
+      memo << { k => v }
     end
   end
 end

@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
       @user.update(commands: merge_in_new_commands(@user))
       render json: @user
     else
-      render json: {"message" => "Sorry, that isn't a valid api key"}
+      render json: { "message" => "Sorry, that isn't a valid api key" }
     end
   end
 

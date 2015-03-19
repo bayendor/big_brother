@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def index
     @top_commands = User.top_commands(10)
     @users = User.all
+    @top_editors = TopCommands.sorted_editors
   end
 
   def show

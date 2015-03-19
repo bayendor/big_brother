@@ -22,6 +22,28 @@
       </tbody>
     </table>
   </div>
+    <div class="well well-lg">
+    <h2>Top Editors</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Command</th>
+          <th>Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @top_editors.each do |editor| %>
+          <% editor.each_pair do |editor, count| %>
+            <tr>
+              <td><%=editor %></td>
+              <td><%= count %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
 </div>
 
 <div class="col-sm-6">
