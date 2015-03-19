@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   serialize :commands, ActiveRecord::Coders::NestedHstore
   after_create :generate_apikey
 
+  def self.top_commands(num)
+    TopCommands.top(num)
+  end
+
   def self.from_omniauth(hash)
     user = first_or_create(github_id: hash["uid"])
     user.update_from_auth(hash)
@@ -13,6 +17,10 @@ class User < ActiveRecord::Base
     self.name    = hash["info"]["name"]
     self.picture = hash["info"]["image"]
     save!
+  end
+
+  def most_used_command
+    sorted_commands.first.keys.first
   end
 
   def sorted_commands

@@ -1,25 +1,41 @@
 <% page_header "Users" %>
 
 <div class="col-sm-6">
-<div class="well well-lg">
-  <h2>Top Trending Commands</h2>
-  <ul>
-    <li>a command</li>
-    <li>another command</li>
-    <li>one more</li>
-  </ul>
-</div>
+  <div class="well well-lg">
+    <h2>Top Trending Commands</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Command</th>
+          <th>Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @top_commands.each do |command| %>
+          <% command.each_pair do |command, count| %>
+            <tr>
+              <td><%= command %></td>
+              <td><%= count %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div class="col-sm-6">
-<% @users.each do |user| %>
-  <div class="well well-lg">
-    <% if user == current_user %>
-      <h2><%= link_to user.name, user_path(user) %></h2>
-    <% else %>
-      <h2><%= user.name %></h2>
-    <% end %>
-    <h4><%= user.name %>'s favorite command: </h4>
-  </div>
-<% end %>
+  <% @users.each do |user| %>
+    <div class="well well-lg">
+      <% if user == current_user %>
+        <h2><%= link_to user.name, user_path(user) %></h2>
+      <% else %>
+        <h2><%= user.name %></h2>
+      <% end %>
+      <% if user.commands.present? %>
+        <h4>Favorite command: <%= user.most_used_command %></h4>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 <div style="clear:both;"></div>
