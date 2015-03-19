@@ -13,7 +13,7 @@ class TopCommands
 
   def sorted_editors
     sorted_commands.select do |command|
-      text_editors.include? command.keys.first
+      text_editors.include? command.keys.first.split(" ").first
     end
   end
 
