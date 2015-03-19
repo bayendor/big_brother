@@ -22,7 +22,7 @@ class TopCommands
   def commands
     all_commands = User.pluck(:commands)
     all_commands.inject({}) do |hash, command|
-      command.deep_merge(hash) {|_k, old, new| old + new}
+      command.deep_merge(hash) { |_k, old, new| old + new }
     end
   end
 
@@ -40,12 +40,12 @@ class TopCommands
   end
 
   def commands_array
-    commands_hash.inject([]) do |memo, (k,v)|
-      memo << {k => v}
+    commands_hash.inject([]) do |memo, (k, v)|
+      memo << { k => v }
     end
   end
 
   def text_editors
-    %w[atom vim mate subl mine emacs]
+    %w(atom vim mvim mate subl mine emacs)
   end
 end
