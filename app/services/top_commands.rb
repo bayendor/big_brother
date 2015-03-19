@@ -10,7 +10,6 @@ class TopCommands
   private
 
   def commands
-    # all_commands = User.all.map {|user| user.commands}
     all_commands = User.pluck(:commands)
     all_commands.inject({}) do |hash, command|
       command.deep_merge(hash) {|_k, old, new| old + new}
