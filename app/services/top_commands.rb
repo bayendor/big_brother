@@ -12,8 +12,11 @@ class TopCommands
   end
 
   def sorted_editors
-    sorted_commands.select do |command|
-      text_editors.include? command.keys.first.split(" ").first
+    commands.each_with_object({}) do |(first_cmd, sub_commands), total|
+      sub_commands.each do |second_cmd, amt|
+        total[first_cmd] ||= 0
+        total[first_cmd]  += amt
+      end
     end
   end
 
