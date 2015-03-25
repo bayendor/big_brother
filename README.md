@@ -16,7 +16,8 @@ A user is then able to view the commands most commonly used along with relavent 
 
 ## Getting Started
 
-This tool is the command line client for the `Big Brother` project that gathers shell command / tool usage patterns.
+This tool requires the [command line client](https://github.com/bayendor/big_bro) for the `Big Brother` project that gathers shell command / tool usage patterns.
+Get it by running `gem install big_bro` on your terminal.
 
 Go to the [https://ministry-of-truth.herokuapp.com/getting_started](https://ministry-of-truth.herokuapp.com/getting_started) and then login with your Github account.  It will take you to a customized "Getting Started" page that includes step by step instructions, along with a customized API key.
 
