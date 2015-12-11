@@ -19,7 +19,7 @@ A user is then able to view the commands most commonly used along with relavent 
 This tool requires the [command line client](https://github.com/bayendor/big_bro) for the `Big Brother` project that gathers shell command / tool usage patterns.
 Get it by running `gem install big_bro` on your terminal.
 
-Go to the [https://ministry-of-truth.herokuapp.com/getting_started](https://ministry-of-truth.herokuapp.com/getting_started) and then login with your Github account.  It will take you to a customized "Getting Started" page that includes step by step instructions, along with a customized API key.
+Go to the ... and then login with your Github account.  It will take you to a customized "Getting Started" page that includes step by step instructions, along with a customized API key.
 
 ## License
 [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/deed.en_GB).
